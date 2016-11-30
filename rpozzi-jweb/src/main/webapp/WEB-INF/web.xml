@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	version="3.0">
+	<display-name>Bluemix Java Web</display-name>
+	<servlet>
+	    <servlet-name>com.rp.rest.server.JerseyRestServer</servlet-name>
+    </servlet>
+    <!-- Servlet mapping can be omitted in case the Application subclass
+         is annotated with @ApplicationPath annotation; in such case
+         the mapping would be automatically added by Jersey -->
+    <servlet-mapping>
+        <servlet-name>com.rp.rest.server.JerseyRestServer</servlet-name>
+        <url-pattern>/rest/*</url-pattern>
+    </servlet-mapping>
+	<security-constraint>
+	    <display-name>rpozzi-jweb-auth</display-name>
+		<web-resource-collection>
+		    <web-resource-name>rpozzi-jweb</web-resource-name>
+		    <url-pattern>/</url-pattern>
+		    <url-pattern>/*</url-pattern>
+		    <url-pattern>/rpozzi-jweb/*</url-pattern>
+		    <http-method>GET</http-method>
+		    <http-method>PUT</http-method>
+		    <http-method>HEAD</http-method>
+		    <http-method>TRACE</http-method>
+		    <http-method>POST</http-method>
+		    <http-method>DELETE</http-method>
+		    <http-method>OPTIONS</http-method>
+		</web-resource-collection>
+		<auth-constraint>
+		    <role-name>USER</role-name>
+		</auth-constraint>
+	</security-constraint>
+	<persistence-context-ref>
+		<persistence-context-ref-name>jpa/entitymanager</persistence-context-ref-name>
+		<persistence-unit-name>robi</persistence-unit-name>
+	</persistence-context-ref>
+	<!-- DB2 datasource -->
+	<resource-ref>
+		<!-- The cloudAutowiring-1.0 Liberty feature will resolve this to whatever 
+			the database service name is -->
+		<!-- When running locally without this feature, create a datasource with 
+			the JNDI name "jdbc/mydbdatasource" in server.xml -->
+		<!-- If using MySQL locally then use the "url" property and append "?relaxAutoCommit=true", 
+			for example: <dataSource id='mysql-datasource' jdbcDriverRef='mysql-driver' 
+			jndiName='jdbc/mydbdatasource'> <properties user='root' password='password' 
+			url="jdbc:mysql://localhost:3306/db?relaxAutoCommit=true"/> </dataSource> -->
+		<res-ref-name>jdbc/rpozziBluemixSqlDb</res-ref-name>
+		<res-type>javax.sql.DataSource</res-type>
+		<res-auth>Container</res-auth>
+		<res-sharing-scope>Shareable</res-sharing-scope>
+	</resource-ref>
+	<!-- MySQL datasource -->
+	<resource-ref>
+		<res-ref-name>jdbc/rpozziRestaurants</res-ref-name>
+		<res-type>javax.sql.DataSource</res-type>
+		<res-auth>Container</res-auth>
+		<res-sharing-scope>Shareable</res-sharing-scope>
+	</resource-ref>
+	<welcome-file-list>
+	    <welcome-file>index.html</welcome-file>
+		<welcome-file>home.html</welcome-file>
+		<welcome-file>dbindex.html</welcome-file>
+	</welcome-file-list>
+</web-app>

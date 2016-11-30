@@ -1,0 +1,8 @@
+<application type="war" id="applicationname" name="applicationname"
+	location="xxx">
+	<application-bnd>
+		<security-role name="rolename">
+			<special-subject type="ALL_AUTHENTICATED_USERS" />
+		</security-role>
+	</application-bnd>
+</application>

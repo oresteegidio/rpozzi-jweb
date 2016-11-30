@@ -1,0 +1,2 @@
+cd /Users/robertopozzi
+cf push rpozzi-restaurants -p IBM/wlp-9-beta_2/usr/servers/defaultServer

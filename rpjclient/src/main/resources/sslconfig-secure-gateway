@@ -1,0 +1,28 @@
+Using keytool, create a truststore with all servers and CA certificates, as following:
+
+keytool -import -alias PrimaryCA -file DigiCertCA2.pem -storepass password -keystore sg_trust.jks
+				(answer ‘yes’ to trust it)
+keytool -import -alias SecondaryCA -file DigiCertTrustedRoot.pem -storepass password -keystore sg_trust.jks
+keytool -import -alias GtwServ -file secureGatewayCert.pem -storepass password -keystore sg_trust.jks
+
+Now you have got a truststore (SG_TRUST.JKS) to use for mutual authentication by java, setting a the system property javax.ssl
+
+===========================================================================================================
+[SSL Configuration for IT056547_NodeJs_TLS]
+Using OpenSSL, create a keystore for the client as following:
+- Run OpenSSL console
+openssl 
+- Create the keystore
+pkcs12 -export -in 1WHiHCoLbka_Fef_cert.pem -inkey 1WHiHCoLbka_Fef_key.pem -out sg_key.p12 -name BmxCliCert -noiter –nomaciter –password pass:password
+
+Now you have got a keystore (SG_KEY.P12) to use for mutual authentication by java, setting a SSLContextfactory
+
+******************************************************************************
+[SSL Configuration for IT056547_WASLiberty_TLS]
+Using OpenSSL, create a keystore for the client as following:
+- Run OpenSSL console
+openssl 
+- Create the keystore
+pkcs12 -export -in 1WHiHCoLbka_BrO_cert.pem -inkey 1WHiHCoLbka_BrO_key.pem -out sg_key.p12 -name BmixCliCert -noiter –nomaciter –password pass:password
+
+Now you have got a keystore (SG_KEY.P12) to use for mutual authentication by java, setting a SSLContextfactory

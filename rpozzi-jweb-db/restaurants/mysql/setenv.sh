@@ -1,0 +1,10 @@
+CONTAINER_NAME="robimysql"
+MYSQL_DB_NAME="robimysql"
+MYSQL_DB_USER="robi"
+MYSQL_DB_PWD="robi"
+MYSQL_DATA_VOLUME="/Users/robertopozzi/mysql/data"
+echo "Container Name 		= " $CONTAINER_NAME
+echo "Database Name 		= " $MYSQL_DB_NAME
+echo "DB Username 		= " $MYSQL_DB_USER
+echo "DB Password 		= " $MYSQL_DB_PWD
+echo "MYSQL Data Volume 	= " $MYSQL_DATA_VOLUME

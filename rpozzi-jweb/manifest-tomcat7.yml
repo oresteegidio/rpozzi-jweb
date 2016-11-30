@@ -1,0 +1,11 @@
+applications:
+- path: ./memento-web.war
+  memory: 256M
+  instances: 1
+  domain: eu-gb.mybluemix.net
+  name: memento-w
+  host: memento-w
+  disk_quota: 1024M
+  buildpack: java_buildpack
+env:
+  JBP_CONFIG_TOMCAT: '{tomcat: { version: 7.0.+ }}'

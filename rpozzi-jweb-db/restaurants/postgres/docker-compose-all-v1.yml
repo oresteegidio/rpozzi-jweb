@@ -1,0 +1,20 @@
+mysql:
+    image: mysql:5.6.26
+    container_name: rpmysql
+    ports:
+     - "3307:3306"
+    environment:
+     MYSQL_DATABASE: rpmysql
+     MYSQL_ROOT_PASSWORD: robi
+    links:
+     - nodejs
+     - securegateway
+nodejs:
+    image: rpozzi-nodejs:1
+    container_name: rpozzi-nodejs
+    ports:
+     - "3001:3001"
+securegateway:
+    image: rp-secure-gateway-client
+    container_name: rp-secgateway
+    command: 'xvTo7odmCpe_prod_ng --l TRACE --F "/root/secGatewayAcl.list" --sectoken eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjb25maWd1cmF0aW9uX2lkIjoieHZUbzdvZG1DcGVfcHJvZF9uZyIsInJlZ2lvbiI6InVzLXNvdXRoIiwiaWF0IjoxNDY4NDg2MjEwfQ.Tgmg95HaSdAfpnOHcHq-7FXnjtnHQfwF5Vk8ZA_5lIo'

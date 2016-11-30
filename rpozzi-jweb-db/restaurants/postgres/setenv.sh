@@ -1,0 +1,10 @@
+CONTAINER_NAME="robipostgres"
+POSTGRES_DB_NAME="robipostgres"
+POSTGRES_DB_USER="root"
+POSTGRES_DB_PWD="robi"
+POSTGRES_DATA_CONTAINER="mysqldata"
+echo "Container Name 		= " $CONTAINER_NAME
+echo "Database Name 		= " $POSTGRES_DB_NAME
+echo "DB Username 		= " $POSTGRES_DB_USER
+echo "DB Password 		= " $POSTGRES_DB_PWD
+echo "Postgres Data Volume 	= " $POSTGRES_DATA_VOLUME
