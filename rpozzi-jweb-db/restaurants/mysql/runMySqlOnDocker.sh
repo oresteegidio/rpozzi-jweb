@@ -1,6 +1,6 @@
 #!/bin/bash
 #bash setenv.sh
-
+IMAGE_NAME="registry.ng.bluemix.net/rpozzi/mysql:5.6.26"
 CONTAINER_NAME="robimysql"
 MYSQL_DB_NAME="robimysql"
 MYSQL_DB_USER="root"
@@ -20,19 +20,19 @@ echo "MYSQL Data Volume 	= " $MYSQL_DATA_VOLUME
 ##############################################################################
 ############## Create a Data Only container to store MySql data ##############
 ##############################################################################
-docker run -d -v /var/lib/mysql --name $MYSQL_DATA_CONTAINER mysql:5.6.26 true
+docker run -d -v /var/lib/mysql --name $MYSQL_DATA_CONTAINER $IMAGE_NAME true
 #docker run -d -v /var/lib/mysql --name $MYSQL_DATA_CONTAINER busybox true
 
 #################################################
 ############## Run MySql container ##############
 #################################################
-docker run --name $CONTAINER_NAME --volumes-from $MYSQL_DATA_CONTAINER -e MYSQL_DATABASE=$MYSQL_DB_NAME -e MYSQL_ROOT_PASSWORD=$MYSQL_DB_PWD -d -p 3307:3306 mysql:5.6.26
-#docker run --name $CONTAINER_NAME -v /Users/robertopozzi/mysql/data:/var/lib/mysql -e MYSQL_DATABASE=$MYSQL_DB_NAME -e MYSQL_ROOT_PASSWORD=$MYSQL_DB_PWD -d -p 3307:3306 mysql:5.6.26
+docker run --name $CONTAINER_NAME --volumes-from $MYSQL_DATA_CONTAINER -e MYSQL_DATABASE=$MYSQL_DB_NAME -e MYSQL_ROOT_PASSWORD=$MYSQL_DB_PWD -d -p 3307:3306 $IMAGE_NAME
+#docker run --name $CONTAINER_NAME -v /Users/robertopozzi/mysql/data:/var/lib/mysql -e MYSQL_DATABASE=$MYSQL_DB_NAME -e MYSQL_ROOT_PASSWORD=$MYSQL_DB_PWD -d -p 3307:3306 $IMAGE_NAME
 
 #####################################################################
 ############## Run MySql container in interactive mode ##############
 #####################################################################
-#docker run --name $CONTAINER_NAME --volumes-from $MYSQL_DATA_CONTAINER -e MYSQL_DATABASE=$MYSQL_DB_NAME -e MYSQL_ROOT_PASSWORD=$MYSQL_DB_PWD -it -p 3307:3306 mysql:5.6.26 /bin/bash
+#docker run --name $CONTAINER_NAME --volumes-from $MYSQL_DATA_CONTAINER -e MYSQL_DATABASE=$MYSQL_DB_NAME -e MYSQL_ROOT_PASSWORD=$MYSQL_DB_PWD -it -p 3307:3306 $IMAGE_NAME /bin/bash
 
 
 
