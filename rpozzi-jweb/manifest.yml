@@ -1,8 +1,14 @@
 applications:
-- path: target/rpozzi-jweb.war
-  name: rpozzi-jweb
+- name: rpozzi-jweb
   host: rpozzi-jweb
   domain: mybluemix.net
+  path: target/rpozzi-jweb.war
   instances: 1
   memory: 1024M
   disk_quota: 1024M
+services:
+- robi-sso
+- Secure Gateway-4t
+- Auto-Scaling-31
+env:
+  FORCE_HTTPS: true

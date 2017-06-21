@@ -22,13 +22,30 @@
 
     <applicationMonitor updateTrigger="mbean"/>
     
-    <library id="DB2JCCLib">
-		<fileset dir="${server.config.dir}/lib" includes="db2jcc.jar"/>
-	</library>
+    <library id="MySqlLib">
+		<fileset dir="${server.config.dir}/lib" includes="mysql-connector-java-5.1.38-bin.jar"/>
+    </library>
+    
+    <library id="DB2Lib">
+		<fileset dir="${server.config.dir}/lib" includes="db2*.jar"/>
+    </library>
 	
-	<dataSource id="db2" jndiName="jdbc/rpozziBluemixSqlDb">
-	    <jdbcDriver libraryRef="DB2JCCLib"/>
-	    <properties.db2.jcc databaseName="SQLDB" password="cJzUzYi4tjMQ" portNumber="50000" serverName="75.126.155.153" user="user13220"/>
+	<dataSource id="mysql" jndiName="jdbc/rpozziRestaurants">
+		<jdbcDriver libraryRef="MySqlLib"/>
+		<!-- <properties url="jdbc:mysql://192.168.99.100:3307/rpmysql?relaxAutoCommit=true" user="root" password="robi" /> -->
+		<!-- Secure Gateway NO TLS Endpoint -->
+		<properties password="robi" url="jdbc:mysql://cap-sg-prd-3.integration.ibmcloud.com:15550/rpmysql?relaxAutoCommit=true" user="root"/> 
+		<!-- Secure Gateway TLS Endpoint -->
+		<!-- <properties url="jdbc:mysql://cap-sg-prd-3.integration.ibmcloud.com:15532/rpmysql?relaxAutoCommit=true" user="root" password="robi" /> -->
+	</dataSource>
+	
+	<dataSource id="db2" jndiName="jdbc/rpozziRestaurantsDB2">
+		<jdbcDriver libraryRef="DB2Lib"/>
+		<!-- <properties.db2.jcc databaseName="SAMPLE" serverName="192.168.99.100" portNumber="50000" user="db2inst1" password="robi1572"></properties.db2.jcc> -->
+		<!-- Secure Gateway NO TLS Endpoint -->
+		<properties.db2.jcc databaseName="SAMPLE" password="robi1572" portNumber="16315" serverName="cap-sg-prd-3.integration.ibmcloud.com" user="db2inst1"/> 
+		<!-- Secure Gateway TLS Endpoint -->
+		<!-- <properties.db2.jcc databaseName="SAMPLE" serverName="cap-sg-prd-3.integration.ibmcloud.com" portNumber="XXXXX" user="db2inst1" password="robi1572"></properties.db2.jcc> -->
 	</dataSource>
 
     <webApplication id="rpozzi-jweb" location="rpozzi-jweb.war" name="rpozzi-jweb">
