@@ -1,8 +1,0 @@
-
- Index  Count  Time of first Occurrence    Time of last Occurrence     Exception SourceId ProbeId
-------+------+---------------------------+---------------------------+---------------------------
-     0      1   10/7/16 13:30:47:865 CEST   10/7/16 13:30:47:865 CEST java.sql.SQLNonTransientException com.ibm.ws.jdbc.DataSourceService 587
-                                                                            - /Users/robertopozzi/IBM/wlp-9-beta/usr/servers/defaultServer/logs/ffdc/ffdc_16.10.07_13.30.47.0.log
-     1      1   10/7/16 13:30:47:895 CEST   10/7/16 13:30:47:895 CEST java.sql.SQLNonTransientException com.ibm.ws.resource.internal.ResourceFactoryTrackerData$1 109
-                                                                            - /Users/robertopozzi/IBM/wlp-9-beta/usr/servers/defaultServer/logs/ffdc/ffdc_16.10.07_13.30.47.1.log
-------+------+---------------------------+---------------------------+---------------------------
