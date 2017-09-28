@@ -47,4 +47,6 @@
 		<!-- Secure Gateway TLS Endpoint -->
 		<!-- <properties.db2.jcc databaseName="SAMPLE" serverName="cap-sg-prd-3.integration.ibmcloud.com" portNumber="XXXXX" user="db2inst1" password="robi1572"></properties.db2.jcc> -->
 	</dataSource>
+
+    <webApplication id="rpozzi-jweb" location="rpozzi-jweb.war" name="rpozzi-jweb"/>
 </server>
