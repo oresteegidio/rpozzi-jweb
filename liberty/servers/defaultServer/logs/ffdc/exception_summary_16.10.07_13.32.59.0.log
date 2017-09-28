@@ -1,0 +1,12 @@
+
+ Index  Count  Time of first Occurrence    Time of last Occurrence     Exception SourceId ProbeId
+------+------+---------------------------+---------------------------+---------------------------
+     0      3   10/7/16 13:32:59:060 CEST   10/7/16 13:38:46:737 CEST com.mysql.jdbc.exceptions.jdbc4.CommunicationsException com.ibm.ws.rsadapter.spi.InternalGenericDataStoreHelper.getPooledCon 1298
+                                                                            - /Users/robertopozzi/IBM/wlp-9-beta/usr/servers/defaultServer/logs/ffdc/ffdc_16.10.07_13.32.59.0.log
+     1      3   10/7/16 13:32:59:070 CEST   10/7/16 13:38:46:737 CEST com.ibm.ws.rsadapter.exceptions.DataStoreAdapterException com.ibm.ejs.j2c.poolmanager.FreePool.createManagedConnectionWithMCWrapper 199
+                                                                            - /Users/robertopozzi/IBM/wlp-9-beta/usr/servers/defaultServer/logs/ffdc/ffdc_16.10.07_13.32.59.1.log
+     2      3   10/7/16 13:32:59:101 CEST   10/7/16 13:38:46:738 CEST javax.resource.spi.ResourceAllocationException com.ibm.ws.rsadapter.jdbc.WSJdbcDataSource.getConnection 299
+                                                                            - /Users/robertopozzi/IBM/wlp-9-beta/usr/servers/defaultServer/logs/ffdc/ffdc_16.10.07_13.32.59.2.log
+     3      2   10/7/16 13:38:34:568 CEST   10/7/16 13:38:46:753 CEST java.lang.RuntimeException com.ibm.ws.webcontainer.filter.WebAppFilterManager.invokeFilters 1105
+                                                                            - /Users/robertopozzi/IBM/wlp-9-beta/usr/servers/defaultServer/logs/ffdc/ffdc_16.10.07_13.38.34.0.log
+------+------+---------------------------+---------------------------+---------------------------

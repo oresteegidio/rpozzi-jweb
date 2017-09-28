@@ -1,0 +1,220 @@
+------Start of DE processing------ = [1/18/16 14:35:54:212 CET]
+Exception = javax.resource.spi.ResourceAllocationException
+Source = com.ibm.ws.rsadapter.jdbc.WSJdbcDataSource.getConnection
+probeid = 299
+Stack Dump = javax.resource.spi.ResourceAllocationException: DSRA8100E: Unable to get a PooledConnection from the DataSource.
+	at com.ibm.ejs.j2c.FreePool.createManagedConnectionWithMCWrapper(FreePool.java:2025)
+	at com.ibm.ejs.j2c.FreePool.createOrWaitForConnection(FreePool.java:1488)
+	at com.ibm.ejs.j2c.PoolManager.reserve(PoolManager.java:2992)
+	at com.ibm.ejs.j2c.PoolManager.reserve(PoolManager.java:2333)
+	at com.ibm.ejs.j2c.ConnectionManager.allocateMCWrapper(ConnectionManager.java:1122)
+	at com.ibm.ejs.j2c.ConnectionManager.allocateConnection(ConnectionManager.java:689)
+	at com.ibm.ws.rsadapter.jdbc.WSJdbcDataSource.getConnection(WSJdbcDataSource.java:354)
+	at com.ibm.ws.rsadapter.jdbc.WSJdbcDataSource.getConnection(WSJdbcDataSource.java:325)
+	at org.eclipse.persistence.sessions.JNDIConnector.connect(JNDIConnector.java:135)
+	at org.eclipse.persistence.sessions.DatasourceLogin.connectToDatasource(DatasourceLogin.java:162)
+	at org.eclipse.persistence.internal.sessions.DatabaseSessionImpl.setOrDetectDatasource(DatabaseSessionImpl.java:212)
+	at org.eclipse.persistence.internal.sessions.DatabaseSessionImpl.loginAndDetectDatasource(DatabaseSessionImpl.java:764)
+	at org.eclipse.persistence.internal.jpa.EntityManagerFactoryProvider.login(EntityManagerFactoryProvider.java:253)
+	at org.eclipse.persistence.internal.jpa.EntityManagerSetupImpl.deploy(EntityManagerSetupImpl.java:750)
+	at org.eclipse.persistence.internal.jpa.EntityManagerFactoryDelegate.getAbstractSession(EntityManagerFactoryDelegate.java:205)
+	at org.eclipse.persistence.internal.jpa.EntityManagerFactoryDelegate.createEntityManagerImpl(EntityManagerFactoryDelegate.java:305)
+	at org.eclipse.persistence.internal.jpa.EntityManagerFactoryImpl.createEntityManagerImpl(EntityManagerFactoryImpl.java:337)
+	at org.eclipse.persistence.internal.jpa.EntityManagerFactoryImpl.createEntityManager(EntityManagerFactoryImpl.java:318)
+	at com.ibm.ws.jpa.container.v21.internal.JPA21Runtime.createEntityManagerInstance(JPA21Runtime.java:104)
+	at com.ibm.ws.jpa.management.JPAEMPool.getEntityManager(JPAEMPool.java:177)
+	at com.ibm.ws.jpa.management.JPATxEntityManager.getEMInvocationInfo(JPATxEntityManager.java:256)
+	at com.ibm.ws.jpa.management.JPATxEntityManager.getEMInvocationInfo(JPATxEntityManager.java:166)
+	at com.ibm.ws.jpa.management.JPAEntityManager.createQuery(JPAEntityManager.java:348)
+	at com.rp.customer.dao.jpa.CustomerDao.getCustomerList(CustomerDao.java:23)
+	at com.rp.customer.service.CustomerService.getCustomers(CustomerService.java:48)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at com.ibm.ws.jaxrs20.server.LibertyJaxRsServerFactoryBean.performInvocation(LibertyJaxRsServerFactoryBean.java:636)
+	at com.ibm.ws.jaxrs20.server.LibertyJaxRsInvoker.performInvocation(LibertyJaxRsInvoker.java:115)
+	at org.apache.cxf.service.invoker.AbstractInvoker.invoke(AbstractInvoker.java:97)
+	at com.ibm.ws.jaxrs20.server.LibertyJaxRsInvoker.invoke(LibertyJaxRsInvoker.java:210)
+	at org.apache.cxf.jaxrs.JAXRSInvoker.invoke(JAXRSInvoker.java:200)
+	at com.ibm.ws.jaxrs20.server.LibertyJaxRsInvoker.invoke(LibertyJaxRsInvoker.java:381)
+	at org.apache.cxf.jaxrs.JAXRSInvoker.invoke(JAXRSInvoker.java:99)
+	at org.apache.cxf.interceptor.ServiceInvokerInterceptor$1.run(ServiceInvokerInterceptor.java:59)
+	at org.apache.cxf.interceptor.ServiceInvokerInterceptor.handleMessage(ServiceInvokerInterceptor.java:96)
+	at org.apache.cxf.phase.PhaseInterceptorChain.doIntercept(PhaseInterceptorChain.java:307)
+	at org.apache.cxf.transport.ChainInitiationObserver.onMessage(ChainInitiationObserver.java:124)
+	at org.apache.cxf.transport.http.AbstractHTTPDestination.invoke(AbstractHTTPDestination.java:256)
+	at com.ibm.ws.jaxrs20.endpoint.AbstractJaxRsWebEndpoint.invoke(AbstractJaxRsWebEndpoint.java:134)
+	at com.ibm.websphere.jaxrs.server.IBMRestServlet.handleRequest(IBMRestServlet.java:149)
+	at com.ibm.websphere.jaxrs.server.IBMRestServlet.doGet(IBMRestServlet.java:115)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:687)
+	at com.ibm.websphere.jaxrs.server.IBMRestServlet.service(IBMRestServlet.java:99)
+	at com.ibm.ws.webcontainer.servlet.ServletWrapper.service(ServletWrapper.java:1287)
+	at com.ibm.ws.webcontainer.servlet.ServletWrapper.handleRequest(ServletWrapper.java:778)
+	at com.ibm.ws.webcontainer.servlet.ServletWrapper.handleRequest(ServletWrapper.java:475)
+	at com.ibm.ws.webcontainer.filter.WebAppFilterManager.invokeFilters(WebAppFilterManager.java:1157)
+	at com.ibm.ws.webcontainer.webapp.WebApp.handleRequest(WebApp.java:4867)
+	at com.ibm.ws.webcontainer31.osgi.webapp.WebApp31.handleRequest(WebApp31.java:525)
+	at com.ibm.ws.webcontainer.osgi.DynamicVirtualHost$2.handleRequest(DynamicVirtualHost.java:297)
+	at com.ibm.ws.webcontainer.WebContainer.handleRequest(WebContainer.java:997)
+	at com.ibm.ws.webcontainer.osgi.DynamicVirtualHost$2.run(DynamicVirtualHost.java:262)
+	at com.ibm.ws.http.dispatcher.internal.channel.HttpDispatcherLink$TaskWrapper.run(HttpDispatcherLink.java:955)
+	at com.ibm.ws.http.dispatcher.internal.channel.HttpDispatcherLink.ready(HttpDispatcherLink.java:341)
+	at com.ibm.ws.http.channel.internal.inbound.HttpInboundLink.handleDiscrimination(HttpInboundLink.java:470)
+	at com.ibm.ws.http.channel.internal.inbound.HttpInboundLink.handleNewRequest(HttpInboundLink.java:404)
+	at com.ibm.ws.http.channel.internal.inbound.HttpInboundLink.processRequest(HttpInboundLink.java:284)
+	at com.ibm.ws.http.channel.internal.inbound.HttpICLReadCallback.complete(HttpICLReadCallback.java:66)
+	at com.ibm.ws.tcpchannel.internal.WorkQueueManager.requestComplete(WorkQueueManager.java:504)
+	at com.ibm.ws.tcpchannel.internal.WorkQueueManager.attemptIO(WorkQueueManager.java:574)
+	at com.ibm.ws.tcpchannel.internal.WorkQueueManager.workerRun(WorkQueueManager.java:929)
+	at com.ibm.ws.tcpchannel.internal.WorkQueueManager$Worker.run(WorkQueueManager.java:1018)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.sql.SQLException: [jcc][t4][2057][11264][3.66.46] The application server rejected establishment of the connection.
+An attempt was made to access a database, I_098302, which was either not found or does not support transactions. ERRORCODE=-4499, SQLSTATE=08004 DSRA0010E: SQL State = 08004, Error Code = -4,499
+	at com.ibm.db2.jcc.am.dd.a(dd.java:321)
+	at com.ibm.db2.jcc.am.dd.a(dd.java:430)
+	at com.ibm.db2.jcc.t4.y.u(y.java:1860)
+	at com.ibm.db2.jcc.t4.y.n(y.java:665)
+	at com.ibm.db2.jcc.t4.y.a(y.java:472)
+	at com.ibm.db2.jcc.t4.y.a(y.java:121)
+	at com.ibm.db2.jcc.t4.b.c(b.java:1356)
+	at com.ibm.db2.jcc.t4.b.b(b.java:1227)
+	at com.ibm.db2.jcc.t4.b.b(b.java:794)
+	at com.ibm.db2.jcc.t4.b.a(b.java:766)
+	at com.ibm.db2.jcc.t4.b.a(b.java:422)
+	at com.ibm.db2.jcc.t4.b.a(b.java:397)
+	at com.ibm.db2.jcc.t4.b.<init>(b.java:335)
+	at com.ibm.db2.jcc.DB2PooledConnection.<init>(DB2PooledConnection.java:84)
+	at com.ibm.db2.jcc.DB2ConnectionPoolDataSource.getPooledConnectionX(DB2ConnectionPoolDataSource.java:348)
+	at com.ibm.db2.jcc.DB2ConnectionPoolDataSource.getPooledConnection(DB2ConnectionPoolDataSource.java:131)
+	at com.ibm.ws.rsadapter.spi.InternalGenericDataStoreHelper$1.run(InternalGenericDataStoreHelper.java:1198)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.ibm.ws.rsadapter.spi.InternalGenericDataStoreHelper.getPooledConnection(InternalGenericDataStoreHelper.java:1214)
+	at com.ibm.ws.rsadapter.spi.InternalDB2UniversalDataStoreHelper.getPooledConnection(InternalDB2UniversalDataStoreHelper.java:1510)
+	at com.ibm.ws.rsadapter.spi.WSRdbDataSource.getPooledConnection(WSRdbDataSource.java:332)
+	at com.ibm.ws.rsadapter.spi.WSManagedConnectionFactoryImpl.getConnection(WSManagedConnectionFactoryImpl.java:1216)
+	at com.ibm.ws.rsadapter.spi.WSManagedConnectionFactoryImpl.createManagedConnection(WSManagedConnectionFactoryImpl.java:966)
+	at com.ibm.ws.rsadapter.spi.WSManagedConnectionFactoryImpl.createManagedConnection(WSManagedConnectionFactoryImpl.java:651)
+	at com.ibm.ejs.j2c.FreePool.createManagedConnectionWithMCWrapper(FreePool.java:1744)
+	... 67 more
+
+Dump of callerThis
+Object type = com.ibm.ws.rsadapter.jdbc.WSJdbcDataSource
+  strings[0] = "_______________________________________________________________________"
+  strings[1] = ""
+  strings[2] = "    First Failure Data Capture information for"
+  strings[3] = "          com.ibm.ws.rsadapter.jdbc.WSJdbcDataSource@4e7311c6"
+  strings[4] = "_______________________________________________________________________"
+  strings[5] = ""
+  strings[6] = "ResourceRefInfo:"
+  strings[7] = "  
+[Resource-ref CMConfigData key items]
+
+	res-sharing-scope:        0 (SHAREABLE)
+	res-isolation-level:      0 (TRANSACTION_NONE)
+	res-auth:                 0 (CONTAINER)
+	commitPriority            0
+	branchCoupling            -1
+	loginConfigurationName:   null
+	loginConfigProperties:    {}
+	Resource ref name:        jdbc/rpozziBluemixSqlDb
+
+"
+  strings[8] = "Current Configuration ID: 1
+"
+  strings[9] = "Connection Manager:"
+  strings[10] = "  [ConnectionManager]@2a8c8d8d
+JNDI Name <jdbc/rpozziBluemixSqlDb>
+shareable <true>
+
+"
+  strings[11] = "_______________________________________________________________________"
+  strings[12] = ""
+  strings[13] = "    First Failure Data Capture information for"
+  strings[14] = "          com.ibm.ws.rsadapter.spi.WSManagedConnectionFactoryImpl@cbd092c"
+  strings[15] = "_______________________________________________________________________"
+  strings[16] = ""
+  strings[17] = "com.ibm.ws.rsadapter.DSConfig@72e7c6a9"
+  strings[18] = "[beginTranForResultSetScrollingAPIs, true, beginTranForVendorAPIs, true, commitOrRollbackOnCleanup, null, connectionSharing, 0, isolationLevel, -1, jndiName, jdbc/rpozziBluemixSqlDb, queryTimeout, null, statementCacheSize, 10, supplementalJDBCTrace, null, syncQueryTimeoutWithTransactionTimeout, false, transactional, true, resultSetUnusableWhenNoMoreResults, false]"
+  strings[19] = "[com.ibm.ws.classloading.internal.AppClassLoader@6f56f90c, true, ExceptionChecking, false, interface javax.sql.ConnectionPoolDataSource]"
+  strings[20] = "{serverName=23.246.224.202, traceLevel=0, user=uirwowsr, databaseName=I_098302, retrieveMessagesFromServerOnGetMessage=true, driverType=4, dataSourceClass=com.ibm.db2.jcc.DB2ConnectionPoolDataSource, portNumber=50000, deferPrepares=true}"
+  strings[21] = "Resource Adapter:"
+  strings[22] = "  null
+"
+  strings[23] = "Database Type:"
+  strings[24] = "  null
+"
+  strings[25] = "Description:"
+  strings[26] = "  null
+"
+  strings[27] = "Log Writer:"
+  strings[28] = "  null
+"
+  strings[29] = "Transaction Branches are set to be Loosely Coupled: "
+  strings[30] = "  false
+"
+  strings[31] = "Counter of fatal connection errors on ManagedConnections created by this MCF:"
+  strings[32] = "  0
+"
+  strings[33] = "Validate existing connections on cleanup after a fatal connection error is detected?"
+  strings[34] = "  true
+"
+  strings[35] = "ResetConnectionByBackendDatabase: "
+  strings[36] = "  false
+"
+  strings[37] = "Backend id checking is: "
+  strings[38] = "  true
+"
+  strings[39] = "JMSOnePhaseOptimization: "
+  strings[40] = "  false
+"
+  strings[41] = "Reauthentication: "
+  strings[42] = "  false
+"
+  strings[43] = "newDBConnectionValidationEnabled: "
+  strings[44] = "  false
+"
+  strings[45] = "connectionRetriesDuringDBFailover: "
+  strings[46] = "  100
+"
+  strings[47] = "connRetryDurationDuringDBFailover: "
+  strings[48] = "  3000
+"
+  strings[49] = "Failover count: "
+  strings[50] = "  0
+"
+  strings[51] = "OracleImplicitConnectionPooling enabled: "
+  strings[52] = "  false
+"
+  strings[53] = ""
+  strings[54] = "_______________________________________________________________________"
+  strings[55] = ""
+  strings[56] = "    First Failure Data Capture information for"
+  strings[57] = "          com.ibm.ws.rsadapter.spi.WSRdbDataSource@5a09194c"
+  strings[58] = "_______________________________________________________________________"
+  strings[59] = ""
+  strings[60] = "DataSource Implementation Class Name:"
+  strings[61] = "  com.ibm.db2.jcc.DB2ConnectionPoolDataSource
+"
+  strings[62] = "DataSource Name:"
+  strings[63] = "  null
+"
+  strings[64] = "DataStoreHelper:"
+  strings[65] = "  com.ibm.websphere.rsadapter.DB2UniversalDataStoreHelper@2eae7814
+"
+  strings[66] = "DataSource properties:"
+  strings[67] = "  {serverName=23.246.224.202, traceLevel=0, user=uirwowsr, databaseName=I_098302, retrieveMessagesFromServerOnGetMessage=true, driverType=4, dataSourceClass=com.ibm.db2.jcc.DB2ConnectionPoolDataSource, portNumber=50000, deferPrepares=true}
+"
+  strings[68] = "ONE PHASE ENABLED
+"
+  strings[69] = "Underlying DataSource Object: com.ibm.db2.jcc.DB2ConnectionPoolDataSource@89d6e71"
+  strings[70] = "  com.ibm.db2.jcc.DB2ConnectionPoolDataSource@89d6e71
+"
+  strings[71] = "Counter of unique, modified DataSource configurations: 0
+"
+  strings[72] = "Failover servers list: "
+  strings[73] = "  [Ljava.lang.Object;@44832345
+"
+
