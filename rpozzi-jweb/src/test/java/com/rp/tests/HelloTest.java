@@ -1,4 +1,4 @@
-package com.codemotionworld.cdonpaas;
+package com.rp.tests;
 
 import org.junit.Assert;
 import org.junit.Test;

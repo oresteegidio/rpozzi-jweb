@@ -82,19 +82,6 @@
 					</execution>
 				</executions>
 			</plugin> -->
-			<!-- <plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>2.17</version>
-				<configuration>
-					<systemPropertyVariables>
-						<baseUrl>http://localhost:8080/cd-on-paas/</baseUrl>
-					</systemPropertyVariables>
-					<excludes>
-						<exclude>**/*AcceptanceTest.java</exclude>
-					</excludes>
-				</configuration>
-			</plugin> -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
