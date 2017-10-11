@@ -1,5 +1,2 @@
 <Replace this text with the license you've chosen for your project.>
-TEST Issue #1
-TEST Issue #2
-
-##### TEST TEST TEST 
+COMMIT Issue #1
